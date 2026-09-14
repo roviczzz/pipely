@@ -20,13 +20,13 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Initialize Next.js 16.3.5 project with React 19, Tailwind CSS 4, and TypeScript
-- [ ] T002 [P] Install and configure base `shadcn/ui` and required dependencies (lucide-react, clsx, tailwind-merge)
-- [ ] T002b [P] Install and configure Vitest and React Testing Library
-- [ ] T003 [P] Initialize Prisma ORM with SQLite provider
-- [ ] T004 Create foundational folder structure (`components/ui`, `components/admin`, `components/crm`, `components/auth`, `lib/actions`)
-- [ ] T005 Create `lib/prisma.ts` for the global database client instance
-- [ ] T006 [P] Create `lib/utils.ts` for shared UI utilities
+- [X] T001 Initialize Next.js 16.3.5 project with React 19, Tailwind CSS 4, and TypeScript
+- [X] T002 [P] Install and configure base `shadcn/ui` and required dependencies (lucide-react, clsx, tailwind-merge)
+- [X] T002b [P] Install and configure Vitest and React Testing Library
+- [X] T003 [P] Initialize Prisma ORM with SQLite provider
+- [X] T004 Create foundational folder structure (`components/ui`, `components/admin`, `components/crm`, `components/auth`, `lib/actions`)
+- [X] T005 Create `lib/prisma.ts` for the global database client instance
+- [X] T006 [P] Create `lib/utils.ts` for shared UI utilities
 
 ---
 
