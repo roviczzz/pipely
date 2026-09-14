@@ -56,6 +56,7 @@ This repo uses [Speckit](https://github.com/anomalyco/speckit) via OpenCode slas
 ```
 
 **Important Speckit details:**
+
 - Feature directories land under `specs/` with sequential numbering (`001-name`, `002-name`, …). Numbering is set by `feature_numbering: "sequential"` in `.specify/init-options.json`.
 - Each command starts by running a PowerShell prerequisite script (e.g., `check-prerequisites.ps1 -Json`) from the repo root and parsing its JSON output for `FEATURE_DIR` and `AVAILABLE_DOCS`. Use absolute paths for all filesystem operations.
 - `tasks.md` task format is strict: `- [ ] T001 [P] [US1] Description with/exact/file/path.ts`. Missing any component (checkbox, ID, story label, path) is invalid.

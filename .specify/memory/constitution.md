@@ -1,16 +1,13 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version change: [unversioned scaffold] → 1.0.0
+Version change: 1.0.0 → 1.1.0
+Modified principles: N/A
 Added sections:
-  - Core Principles (15 Next.js best practices, fully populated)
-  - Tech Stack & Constraints
-  - Development Workflow
-  - Governance
-Modified principles: N/A (initial population from blank scaffold)
+  - XVI. Feature Branch Workflow (new principle under Core Principles)
+  - Development Workflow: added feature branch rule
 Removed sections: N/A
-Deferred TODOs:
-  - RATIFICATION_DATE set to 2026-09-14 (today, first adoption)
+Deferred TODOs: none
 -->
 
 # Pipely Constitution
@@ -169,6 +166,18 @@ accompanying explanation and issue reference.
 **Rationale**: Automated gates prevent regressions from reaching production and
 make code review faster by eliminating mechanical feedback.
 
+### XVI. Feature Branch Workflow
+
+Every feature, bug fix, or non-trivial change MUST be developed on a dedicated Git
+branch. No implementation work MUST land directly on `main` (or the default branch).
+Branch naming MUST follow the pattern `feature/<short-slug>`, `fix/<short-slug>`, or
+`chore/<short-slug>` as appropriate. Branches MUST be created from an up-to-date
+`main` and MUST be merged via pull request after all quality gates pass.
+
+**Rationale**: Isolated branches prevent partially-complete work from destabilising
+the default branch, enable parallel development without conflicts, and create a
+natural code-review checkpoint before integration.
+
 ## Tech Stack & Constraints
 
 - **Framework**: Next.js 16.3.5 (App Router) — consult `node_modules/next/dist/docs/`
@@ -188,6 +197,13 @@ make code review faster by eliminating mechanical feedback.
 - **Lint**: `npm run lint` — MUST be green before any PR merge.
 - **Build**: `npm run build` — run for routing, config, or production-behavior changes.
 - **Start**: `npm start` — production server, used for final verification.
+- **Branching**: Every feature or fix MUST be developed on its own branch (see
+  Principle XVI). Create a branch before writing any code:
+  ```
+  git checkout main && git pull
+  git checkout -b feature/<slug>
+  ```
+  Open a pull request once all gates pass; merge to `main` only via PR.
 - Static assets go in `public/`; never import from `public/` using relative paths —
   use the root-relative URL (`/filename.ext`).
 - Preserve the `<!-- BEGIN:nextjs-agent-rules -->` block in `AGENTS.md`; `next dev`
@@ -215,4 +231,4 @@ waiver and a follow-up issue to remediate.
 
 **Guidance file**: Refer to `AGENTS.md` for runtime agent guidance during development.
 
-**Version**: 1.0.0 | **Ratified**: 2026-09-14 | **Last Amended**: 2026-09-14
+**Version**: 1.1.0 | **Ratified**: 2026-09-14 | **Last Amended**: 2026-09-14
