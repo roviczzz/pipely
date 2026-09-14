@@ -22,6 +22,7 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 - [ ] T001 Initialize Next.js 16.3.5 project with React 19, Tailwind CSS 4, and TypeScript
 - [ ] T002 [P] Install and configure base `shadcn/ui` and required dependencies (lucide-react, clsx, tailwind-merge)
+- [ ] T002b [P] Install and configure Vitest and React Testing Library
 - [ ] T003 [P] Initialize Prisma ORM with SQLite provider
 - [ ] T004 Create foundational folder structure (`components/ui`, `components/admin`, `components/crm`, `components/auth`, `lib/actions`)
 - [ ] T005 Create `lib/prisma.ts` for the global database client instance
@@ -39,6 +40,7 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 - [ ] T008 Generate Prisma client and create initial database migration (`npx prisma migrate dev --name init`)
 - [ ] T009 Implement the database seed script in `prisma/seed.ts` to populate the initial demo account and sample data
 - [ ] T010 Install and configure NextAuth.js (Auth.js v5) with Credentials provider (no route file yet)
+- [ ] T010b Document required environment variables for SQLite and NextAuth in `.env.example`
 - [ ] T011 Create base root layout with standard meta tags and global CSS in `app/layout.tsx` and `app/globals.css`
 - [ ] T012 Setup `middleware.ts` for route protection (redirecting unauthenticated users from `/dashboard` and sub-routes)
 
@@ -60,6 +62,8 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 - [ ] T016 [P] [US1] Build Register form component in `components/auth/register-form.tsx`
 - [ ] T017 [US1] Assemble Login page in `app/(auth)/login/page.tsx` using standard shadcn/ui layouts
 - [ ] T018 [US1] Assemble Register page in `app/(auth)/register/page.tsx`
+- [ ] T018b [US1] Write unit tests for auth server actions and forms using Vitest
+- [ ] T018c [US1] Add error boundaries for auth routes in `app/(auth)/error.tsx`
 - [ ] T019 [US1] Add a basic global `app/page.tsx` (landing page) that redirects to `/dashboard` or `/login`
 
 **Checkpoint**: User Story 1 is fully functional and auth protects routes.
@@ -78,6 +82,8 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 - [ ] T021 [P] [US2] Create metric card and recent activity components in `components/admin/metric-card.tsx` and `components/admin/recent-activity.tsx`
 - [ ] T022 [US2] Implement data-fetching logic for dashboard metrics in `app/(dashboard)/dashboard/page.tsx`
 - [ ] T023 [US2] Assemble Dashboard page in `app/(dashboard)/dashboard/page.tsx`
+- [ ] T023b [US2] Add loading and error states for the dashboard route in `app/(dashboard)/dashboard/loading.tsx` and `app/(dashboard)/dashboard/error.tsx`
+- [ ] T023c [US2] Write unit tests for dashboard metric calculations
 
 **Checkpoint**: Dashboard overview renders data independently.
 
@@ -93,9 +99,10 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 - [ ] T024 [P] [US3] Implement Contact Server Actions matching contracts in `lib/actions/contacts.ts`
 - [ ] T025 [P] [US3] Build Contact form and validation schema in `components/crm/contact-form.tsx`
-- [ ] T026 [P] [US3] Build Contact data table in `components/crm/contact-table.tsx`
+- [ ] T026 [P] [US3] Build Contact data table with pagination controls in `components/crm/contact-table.tsx`
 - [ ] T027 [US3] Assemble Contacts page in `app/(dashboard)/contacts/page.tsx` integrating table and forms
 - [ ] T028 [US3] Add loading and error states for the Contacts route in `app/(dashboard)/contacts/loading.tsx` and `app/(dashboard)/contacts/error.tsx`
+- [ ] T028b [US3] Write unit tests for Contact Server Actions and UI components
 
 **Checkpoint**: Contacts management is fully operational.
 
@@ -111,10 +118,11 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 - [ ] T029 [P] [US4] Implement Company Server Actions matching contracts in `lib/actions/companies.ts`
 - [ ] T030 [P] [US4] Build Company form and validation schema in `components/crm/company-form.tsx`
-- [ ] T031 [P] [US4] Build Company data table in `components/crm/company-table.tsx`
+- [ ] T031 [P] [US4] Build Company data table with pagination controls in `components/crm/company-table.tsx`
 - [ ] T032 [US4] Assemble Companies page in `app/(dashboard)/companies/page.tsx` integrating table and forms
 - [ ] T033 [US4] Update `components/crm/contact-form.tsx` to include an optional Company dropdown selector
 - [ ] T034 [US4] Add loading and error states in `app/(dashboard)/companies/loading.tsx` and `app/(dashboard)/companies/error.tsx`
+- [ ] T034b [US4] Write unit tests for Company Server Actions and UI components
 
 **Checkpoint**: Companies management is operational and integrates with Contacts.
 
@@ -134,6 +142,7 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 - [ ] T038 [US5] Implement stage selector dropdown on the Deal Card to trigger `updateDealStage` Action
 - [ ] T039 [US5] Assemble Deals page in `app/(dashboard)/deals/page.tsx` rendering the Kanban board
 - [ ] T040 [US5] Add loading and error states in `app/(dashboard)/deals/loading.tsx` and `app/(dashboard)/deals/error.tsx`
+- [ ] T040b [US5] Write unit tests for Deal Server Actions and UI components
 
 **Checkpoint**: Deals Kanban board is fully operational.
 
