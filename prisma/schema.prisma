@@ -4,10 +4,60 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  displayName  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Contact {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  email     String   @unique
+  phone     String?
+  status    String   @default("LEAD") // LEAD, ACTIVE, INACTIVE
+  companyId String?
+  company   Company? @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  deals     Deal[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Company {
+  id        String    @id @default(cuid())
+  name      String
+  industry  String?
+  website   String?
+  size      String?   // SIZE_1_10, SIZE_11_50, SIZE_51_200, SIZE_200_PLUS
+  contacts  Contact[]
+  deals     Deal[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Deal {
+  id                String    @id @default(cuid())
+  title             String
+  value             Float
+  currency          String    @default("USD")
+  stage             String    @default("PROSPECT") // PROSPECT, PROPOSAL, NEGOTIATION, CLOSED_WON, CLOSED_LOST
+  expectedCloseDate DateTime?
+  contactId         String?
+  contact           Contact?  @relation(fields: [contactId], references: [id], onDelete: SetNull)
+  companyId         String?
+  company           Company?  @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
 }

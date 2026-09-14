@@ -36,13 +36,13 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 **🚨 CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T007 Define Prisma database schema (`User`, `Contact`, `Company`, `Deal`) in `prisma/schema.prisma`
-- [ ] T008 Generate Prisma client and create initial database migration (`npx prisma migrate dev --name init`)
-- [ ] T009 Implement the database seed script in `prisma/seed.ts` to populate the initial demo account and sample data
-- [ ] T010 Install and configure NextAuth.js (Auth.js v5) with Credentials provider (no route file yet)
-- [ ] T010b Document required environment variables for SQLite and NextAuth in `.env.example`
-- [ ] T011 Create base root layout with standard meta tags and global CSS in `app/layout.tsx` and `app/globals.css`
-- [ ] T012 Setup `middleware.ts` for route protection (redirecting unauthenticated users from `/dashboard` and sub-routes)
+- [X] T007 Define Prisma database schema (`User`, `Contact`, `Company`, `Deal`) in `prisma/schema.prisma`
+- [X] T008 Generate Prisma client and create initial database migration (`npx prisma migrate dev --name init`)
+- [X] T009 Implement the database seed script in `prisma/seed.ts` to populate the initial demo account and sample data
+- [X] T010 Install and configure NextAuth.js (Auth.js v5) with Credentials provider (no route file yet)
+- [X] T010b Document required environment variables for SQLite and NextAuth in `.env.example`
+- [X] T011 Create base root layout with standard meta tags and global CSS in `app/layout.tsx` and `app/globals.css`
+- [X] T012 Setup `middleware.ts` for route protection (redirecting unauthenticated users from `/dashboard` and sub-routes)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin sequentially or in parallel
 
