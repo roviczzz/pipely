@@ -136,13 +136,13 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 ### Implementation for User Story 5
 
-- [ ] T035 [P] [US5] Implement Deal Server Actions matching contracts in `lib/actions/deals.ts`
-- [ ] T036 [P] [US5] Build Deal creation/edit form in `components/crm/deal-form.tsx`
-- [ ] T037 [P] [US5] Build Kanban column and Deal Card components in `components/crm/kanban-board.tsx` and `components/crm/deal-card.tsx` (using CSS Grid/Flexbox)
-- [ ] T038 [US5] Implement stage selector dropdown on the Deal Card to trigger `updateDealStage` Action
-- [ ] T039 [US5] Assemble Deals page in `app/(dashboard)/deals/page.tsx` rendering the Kanban board
-- [ ] T040 [US5] Add loading and error states in `app/(dashboard)/deals/loading.tsx` and `app/(dashboard)/deals/error.tsx`
-- [ ] T040b [US5] Write unit tests for Deal Server Actions and UI components
+- [X] T035 [P] [US5] Implement Deal Server Actions matching contracts in `lib/actions/deals.ts`
+- [X] T036 [P] [US5] Build Deal creation/edit form in `components/crm/deal-form.tsx`
+- [X] T037 [P] [US5] Build Kanban column and Deal Card components in `components/crm/kanban-board.tsx` and `components/crm/deal-card.tsx` (using CSS Grid/Flexbox)
+- [X] T038 [US5] Implement stage selector dropdown on the Deal Card to trigger `updateDealStage` Action
+- [X] T039 [US5] Assemble Deals page in `app/(dashboard)/deals/page.tsx` rendering the Kanban board
+- [X] T040 [US5] Add loading and error states in `app/(dashboard)/deals/loading.tsx` and `app/(dashboard)/deals/error.tsx`
+- [X] T040b [US5] Write unit tests for Deal Server Actions and UI components
 
 **Checkpoint**: Deals Kanban board is fully operational.
 
