@@ -116,13 +116,13 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 ### Implementation for User Story 4
 
-- [ ] T029 [P] [US4] Implement Company Server Actions matching contracts in `lib/actions/companies.ts`
-- [ ] T030 [P] [US4] Build Company form and validation schema in `components/crm/company-form.tsx`
-- [ ] T031 [P] [US4] Build Company data table with pagination controls in `components/crm/company-table.tsx`
-- [ ] T032 [US4] Assemble Companies page in `app/(dashboard)/companies/page.tsx` integrating table and forms
-- [ ] T033 [US4] Update `components/crm/contact-form.tsx` to include an optional Company dropdown selector
-- [ ] T034 [US4] Add loading and error states in `app/(dashboard)/companies/loading.tsx` and `app/(dashboard)/companies/error.tsx`
-- [ ] T034b [US4] Write unit tests for Company Server Actions and UI components
+- [X] T029 [P] [US4] Implement Company Server Actions matching contracts in `lib/actions/companies.ts`
+- [X] T030 [P] [US4] Build Company form and validation schema in `components/crm/company-form.tsx`
+- [X] T031 [P] [US4] Build Company data table with pagination controls in `components/crm/company-table.tsx`
+- [X] T032 [US4] Assemble Companies page in `app/(dashboard)/companies/page.tsx` integrating table and forms
+- [X] T033 [US4] Update `components/crm/contact-form.tsx` to include an optional Company dropdown selector
+- [X] T034 [US4] Add loading and error states in `app/(dashboard)/companies/loading.tsx` and `app/(dashboard)/companies/error.tsx`
+- [X] T034b [US4] Write unit tests for Company Server Actions and UI components
 
 **Checkpoint**: Companies management is operational and integrates with Contacts.
 
