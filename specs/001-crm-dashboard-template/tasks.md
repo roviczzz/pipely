@@ -97,12 +97,12 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 ### Implementation for User Story 3
 
-- [ ] T024 [P] [US3] Implement Contact Server Actions matching contracts in `lib/actions/contacts.ts`
-- [ ] T025 [P] [US3] Build Contact form and validation schema in `components/crm/contact-form.tsx`
-- [ ] T026 [P] [US3] Build Contact data table with pagination controls in `components/crm/contact-table.tsx`
-- [ ] T027 [US3] Assemble Contacts page in `app/(dashboard)/contacts/page.tsx` integrating table and forms
-- [ ] T028 [US3] Add loading and error states for the Contacts route in `app/(dashboard)/contacts/loading.tsx` and `app/(dashboard)/contacts/error.tsx`
-- [ ] T028b [US3] Write unit tests for Contact Server Actions and UI components
+- [X] T024 [P] [US3] Implement Contact Server Actions matching contracts in `lib/actions/contacts.ts`
+- [X] T025 [P] [US3] Build Contact form and validation schema in `components/crm/contact-form.tsx`
+- [X] T026 [P] [US3] Build Contact data table with pagination controls in `components/crm/contact-table.tsx`
+- [X] T027 [US3] Assemble Contacts page in `app/(dashboard)/contacts/page.tsx` integrating table and forms
+- [X] T028 [US3] Add loading and error states for the Contacts route in `app/(dashboard)/contacts/loading.tsx` and `app/(dashboard)/contacts/error.tsx`
+- [X] T028b [US3] Write unit tests for Contact Server Actions and UI components
 
 **Checkpoint**: Contacts management is fully operational.
 
