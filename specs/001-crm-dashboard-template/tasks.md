@@ -78,12 +78,12 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Build the authenticated Admin layout shell (Sidebar, Header, Breadcrumbs) in `app/(dashboard)/layout.tsx`
-- [ ] T021 [P] [US2] Create metric card and recent activity components in `components/admin/metric-card.tsx` and `components/admin/recent-activity.tsx`
-- [ ] T022 [US2] Implement data-fetching logic for dashboard metrics in `app/(dashboard)/dashboard/page.tsx`
-- [ ] T023 [US2] Assemble Dashboard page in `app/(dashboard)/dashboard/page.tsx`
-- [ ] T023b [US2] Add loading and error states for the dashboard route in `app/(dashboard)/dashboard/loading.tsx` and `app/(dashboard)/dashboard/error.tsx`
-- [ ] T023c [US2] Write unit tests for dashboard metric calculations
+- [X] T020 [P] [US2] Build the authenticated Admin layout shell (Sidebar, Header, Breadcrumbs) in `app/(dashboard)/layout.tsx`
+- [X] T021 [P] [US2] Create metric card and recent activity components in `components/admin/metric-card.tsx` and `components/admin/recent-activity.tsx`
+- [X] T022 [US2] Implement data-fetching logic for dashboard metrics in `app/(dashboard)/dashboard/page.tsx`
+- [X] T023 [US2] Assemble Dashboard page in `app/(dashboard)/dashboard/page.tsx`
+- [X] T023b [US2] Add loading and error states for the dashboard route in `app/(dashboard)/dashboard/loading.tsx` and `app/(dashboard)/dashboard/error.tsx`
+- [X] T023c [US2] Write unit tests for dashboard metric calculations
 
 **Checkpoint**: Dashboard overview renders data independently.
 
