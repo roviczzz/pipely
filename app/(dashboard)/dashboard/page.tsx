@@ -11,6 +11,10 @@ import prisma from "@/lib/prisma";
 export const metadata: Metadata = {
   title: "Dashboard | CRM Dashboard",
   description: "Summary of contacts, companies, deals, and recent CRM activity.",
+  openGraph: {
+    title: "Dashboard | CRM Dashboard",
+    description: "Summary of contacts, companies, deals, and recent CRM activity.",
+  },
 };
 
 export default async function DashboardPage() {

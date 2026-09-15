@@ -9,6 +9,10 @@ import prisma from "@/lib/prisma";
 export const metadata: Metadata = {
   title: "Companies | CRM Dashboard",
   description: "Manage company records, sizes, and account relationships.",
+  openGraph: {
+    title: "Companies | CRM Dashboard",
+    description: "Manage company records, sizes, and account relationships.",
+  },
 };
 
 type CompaniesPageProps = {

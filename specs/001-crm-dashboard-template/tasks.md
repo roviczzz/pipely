@@ -152,11 +152,11 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 **Purpose**: Final application improvements and quality assurance.
 
-- [ ] T041 [P] Verify and implement comprehensive `error.tsx` and `not-found.tsx` at the global level
-- [ ] T042 Verify all form inputs enforce correct validation schemas and show inline error messages
-- [ ] T043 Add/verify metadata config on all user-facing route segments
-- [ ] T044 Run `quickstart.md` validation scenarios locally
-- [ ] T045 Run `npm run lint` and `npx tsc --noEmit` and resolve any outstanding issues
+- [X] T041 [P] Verify and implement comprehensive `error.tsx` and `not-found.tsx` at the global level
+- [X] T042 Verify all form inputs enforce correct validation schemas and show inline error messages
+- [X] T043 Add/verify metadata config on all user-facing route segments
+- [X] T044 Run `quickstart.md` validation scenarios locally
+- [X] T045 Run `npm run lint` and `npx tsc --noEmit` and resolve any outstanding issues
 
 ---
 
