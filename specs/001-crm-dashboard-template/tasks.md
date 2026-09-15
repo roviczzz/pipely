@@ -56,15 +56,15 @@ description: "Task list for feature implementation: CRM Dashboard Template"
 
 ### Implementation for User Story 1
 
-- [ ] T013 [P] [US1] Implement Server Actions for auth (`authenticate`, `register`, `logOut`) matching contracts in `lib/actions/auth.ts`
-- [ ] T014 [US1] Create Auth route handler in `app/api/auth/[...nextauth]/route.ts`
-- [ ] T015 [P] [US1] Build Login form component in `components/auth/login-form.tsx`
-- [ ] T016 [P] [US1] Build Register form component in `components/auth/register-form.tsx`
-- [ ] T017 [US1] Assemble Login page in `app/(auth)/login/page.tsx` using standard shadcn/ui layouts
-- [ ] T018 [US1] Assemble Register page in `app/(auth)/register/page.tsx`
-- [ ] T018b [US1] Write unit tests for auth server actions and forms using Vitest
-- [ ] T018c [US1] Add error boundaries for auth routes in `app/(auth)/error.tsx`
-- [ ] T019 [US1] Add a basic global `app/page.tsx` (landing page) that redirects to `/dashboard` or `/login`
+- [X] T013 [P] [US1] Implement Server Actions for auth (`authenticate`, `register`, `logOut`) matching contracts in `lib/actions/auth.ts`
+- [X] T014 [US1] Create Auth route handler in `app/api/auth/[...nextauth]/route.ts`
+- [X] T015 [P] [US1] Build Login form component in `components/auth/login-form.tsx`
+- [X] T016 [P] [US1] Build Register form component in `components/auth/register-form.tsx`
+- [X] T017 [US1] Assemble Login page in `app/(auth)/login/page.tsx` using standard shadcn/ui layouts
+- [X] T018 [US1] Assemble Register page in `app/(auth)/register/page.tsx`
+- [X] T018b [US1] Write unit tests for auth server actions and forms using Vitest
+- [X] T018c [US1] Add error boundaries for auth routes in `app/(auth)/error.tsx`
+- [X] T019 [US1] Add a basic global `app/page.tsx` (landing page) that redirects to `/dashboard` or `/login`
 
 **Checkpoint**: User Story 1 is fully functional and auth protects routes.
 

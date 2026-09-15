@@ -1,7 +1,7 @@
-export default function Home() {
-  return (
-    <div className="flex flex-1 items-center justify-center">
-      <p className="text-xl font-semibold">pipely</p>
-    </div>
-  );
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
+
+export default async function Home() {
+  const session = await auth();
+  redirect(session?.user ? "/dashboard" : "/login");
 }
