@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pipely CRM
+
+A full-stack CRM (Customer Relationship Management) application built with Next.js 16 App Router. Manage contacts, companies, and deals through a Kanban pipeline — with authentication, a dashboard overview, and full CRUD operations.
+
+## Features
+
+- **Authentication** — Email/password sign-in and registration via NextAuth v5 (Credentials provider)
+- **Dashboard** — Metric tiles for contacts, companies, open deals, and pipeline health; recent activity feed
+- **Contacts** — Create, edit, and delete contacts; associate with companies; filter by status (Lead / Active / Inactive)
+- **Companies** — Full CRUD with industry, website, and size fields; contact association
+- **Deals / Kanban** — Deals organized across five pipeline stages (Prospect → Proposal → Negotiation → Closed Won → Closed Lost); stage changes via dropdown; full CRUD
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16.3.5 (App Router, Turbopack) |
+| UI | React 19.2.8, Tailwind CSS 4 (CSS-first), lucide-react |
+| Auth | NextAuth v5 (Auth.js), bcryptjs |
+| Database | SQLite via Prisma 7 + `better-sqlite3` adapter |
+| Language | TypeScript 5 (strict) |
+| Tests | Vitest + React Testing Library |
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Configure environment variables
+
+Copy `.env.example` to `.env.local` and fill in the values:
+
+```bash
+cp .env.example .env.local
+```
+
+| Variable | Description |
+|---|---|
+| `DATABASE_URL` | SQLite file path, e.g. `file:./dev.db` |
+| `AUTH_SECRET` | Random secret for JWT signing — run `npx auth secret` to generate |
+| `AUTH_TRUST_HOST` | Set to `true` when running locally over plain HTTP |
+
+### 3. Set up the database
+
+```bash
+npx prisma migrate deploy   # apply migrations
+npx prisma db seed          # seed demo data
+```
+
+The seed creates a demo account:
+
+| Field | Value |
+|---|---|
+| Email | `demo@example.com` |
+| Password | `password123` |
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) — you will be redirected to `/login`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev      # Turbopack dev server on :3000
+npm run build    # Production build
+npm start        # Production server
+npm run lint     # ESLint (must be clean before merge)
+npm test         # Vitest test suite
+npx tsc --noEmit # TypeScript type-check
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+  (auth)/           # Login and register pages
+  (dashboard)/      # Authenticated shell: dashboard, contacts, companies, deals
+  api/auth/         # NextAuth route handler
+  generated/prisma/ # Auto-generated Prisma client
+components/
+  admin/            # MetricCard, RecentActivity (Server Components)
+  auth/             # LoginForm, RegisterForm (Client Components)
+  crm/              # ContactForm/Table, CompanyForm/Table, DealForm, KanbanBoard, DealCard
+lib/
+  actions/          # Server Actions: auth, contacts, companies, deals
+  prisma.ts         # Prisma singleton
+  utils.ts          # cn() helper (clsx + tailwind-merge)
+  dashboard.ts      # getOpenDealCount, buildRecentActivity
+prisma/
+  schema.prisma     # Data model: User, Contact, Company, Deal
+  seed.ts           # Demo data seed
+tests/              # Vitest unit + component tests
+specs/              # Feature specifications and implementation plans
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Data Model
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **User** — email, passwordHash, displayName
+- **Contact** — firstName, lastName, email, phone, status, optional company
+- **Company** — name, industry, website, size
+- **Deal** — title, value, currency, stage, expectedCloseDate, optional contact and company
 
-## Deploy on Vercel
+All relationships use `SetNull` on delete. Deal stages and contact statuses are enforced at the Server Action layer.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Architecture Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Server Components by default.** `"use client"` is applied only at form and interactive-component boundaries — never at page or layout level.
+- **Server Actions** handle all mutations. No internal API routes for CRUD.
+- **Route protection** is dual-layered: NextAuth `authorized` middleware callback + per-layout `auth()` checks.
+- **Tailwind 4** is configured CSS-first in `app/globals.css` — no `tailwind.config.js`.
+- **Prisma 7** uses the `prisma-client` generator with the `better-sqlite3` driver adapter, outputting to `app/generated/prisma`.
