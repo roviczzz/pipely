@@ -75,7 +75,7 @@ app/
 public/        # static assets — reference via root-relative URL, never import directly
 ```
 
-No `components/`, `lib/`, or `specs/` directories exist yet — create them when the feature warrants it.
+No `components/` or `lib/` directories exist yet at the root — create them when the feature warrants it. Feature specifications and implementation plans land in `specs/`.
 
 ## `CLAUDE.md`
 
